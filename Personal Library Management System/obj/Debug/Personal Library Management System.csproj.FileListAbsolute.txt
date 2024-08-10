@@ -1,0 +1,52 @@
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\Personal Library Management System.exe.config
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\Personal Library Management System.exe
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\Personal Library Management System.pdb
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\System.Buffers.dll
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\System.Memory.dll
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\System.Numerics.Vectors.dll
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\System.Text.Encodings.Web.dll
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\System.Text.Json.dll
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\System.ValueTuple.dll
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\System.Buffers.xml
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\System.Memory.xml
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\System.Numerics.Vectors.xml
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\System.Text.Encodings.Web.xml
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\System.Text.Json.xml
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Jaffal\Personal Library Management System\Personal Library Management System\bin\Debug\System.ValueTuple.xml
+D:\Jaffal\Personal Library Management System\Personal Library Management System\obj\Debug\Personal Library Management System.csproj.AssemblyReference.cache
+D:\Jaffal\Personal Library Management System\Personal Library Management System\obj\Debug\Personal Library Management System.csproj.CoreCompileInputs.cache
+D:\Jaffal\Personal Library Management System\Personal Library Management System\obj\Debug\Personal.0C35B18E.Up2Date
+D:\Jaffal\Personal Library Management System\Personal Library Management System\obj\Debug\Personal Library Management System.exe
+D:\Jaffal\Personal Library Management System\Personal Library Management System\obj\Debug\Personal Library Management System.pdb
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\Personal Library Management System.exe.config
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\Personal Library Management System.exe
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\Personal Library Management System.pdb
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\System.Buffers.dll
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\System.Memory.dll
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\System.Numerics.Vectors.dll
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\System.Text.Encodings.Web.dll
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\System.Text.Json.dll
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\System.ValueTuple.dll
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\System.Buffers.xml
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\System.Memory.xml
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\System.Numerics.Vectors.xml
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\System.Text.Encodings.Web.xml
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\System.Text.Json.xml
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\bin\Debug\System.ValueTuple.xml
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\obj\Debug\Personal Library Management System.csproj.AssemblyReference.cache
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\obj\Debug\Personal Library Management System.csproj.CoreCompileInputs.cache
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\obj\Debug\Personal.0C35B18E.Up2Date
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\obj\Debug\Personal Library Management System.exe
+D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\obj\Debug\Personal Library Management System.pdb
