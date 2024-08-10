@@ -26,7 +26,7 @@ namespace Personal_Library_Management_System
                     Console.WriteLine("Menu:\n1-Add a Book\n2-View All Books\n3-Update a Book\n4-Delete a book\n5-Search for a Book\n6-Exit");
                     Console.Write("\nEnter your choice: ");
                     choice = Console.ReadLine();
-                    //Console.WriteLine("---------------------------------");
+
 
                     switch (choice)
                     {
@@ -125,7 +125,8 @@ namespace Personal_Library_Management_System
 
             /////////////////////////////////
             Console.Write("Genre:\n");
-            genre = getGenre();
+            genre = ChooseGenre();
+
             //////////////////////////////////
 
             Console.Write("Year of Publication: ");
@@ -166,7 +167,7 @@ namespace Personal_Library_Management_System
             return book;
         }
 
-        public static Genre getGenre()
+        public static Genre ChooseGenre()
         {
             int numOfGenres = 0;
             string genreChoice;
@@ -179,11 +180,14 @@ namespace Personal_Library_Management_System
             }
 
             genreChoice = Console.ReadLine();
+            int genreNumber;
+            bool isNumber = int.TryParse(genreChoice, out genreNumber);
 
-            while (Int32.Parse(genreChoice) < 1 || Int32.Parse(genreChoice) > numOfGenres)
+            while (genreNumber < 1 || genreNumber > numOfGenres || !isNumber)
             {
                 Console.WriteLine("Invalid choices!! try again");
                 genreChoice = Console.ReadLine();
+                isNumber = int.TryParse(genreChoice, out genreNumber);
             }
 
             foreach (var item in Enum.GetValues(typeof(Genre)))
