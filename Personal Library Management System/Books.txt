@@ -29,6 +29,14 @@
     "Genre": 3,
     "Year": "2001-10",
     "Rent": false,
-    "Summary": "hi my name is amal"
+    "Summary": ""
+  },
+  {
+    "Title": "book666",
+    "Author": "noor",
+    "Genre": 1,
+    "Year": "2001-2",
+    "Rent": true,
+    "Summary": "my name is noor"
   }
 ]

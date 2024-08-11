@@ -8,12 +8,14 @@ namespace Personal_Library_Management_System
         void AddBook(Book book, string jsonFile, string txtFile);
         void ViewAllBooks(string jsonFile);
 
-        void UpdateBook(string title);
+        void UpdateBook(string title, string jsonFile, string txtFile);
+
+        void SaveInFiles(string jsonFile, string txtFile);
         List<Book> Load(string jsonFile);
         /*void RentBook(Book book);     
          void DeleteBook(string title);
          Book SearchForBook(string title = "", string author = "");
-         void Save(List<Book> books, string filepath);*/
+         */
         //
     }
 }

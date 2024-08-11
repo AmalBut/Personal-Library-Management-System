@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 
 namespace Personal_Library_Management_System
@@ -40,7 +41,7 @@ namespace Personal_Library_Management_System
             bool validBook = true;
             bool bookFound = false;
 
-            validBook = IsEmptyString(title);
+            validBook = IsEmptyInput(title);
 
             string addedTitleLower = title.ToLower();
             foreach (var bookItem in bookList)
@@ -64,12 +65,13 @@ namespace Personal_Library_Management_System
             return validBook;
         }
 
+
         public static bool IsValidAuthor(string author)
         {
             bool validAuthor = true;
 
 
-            validAuthor = IsEmptyString(author);
+            validAuthor = IsEmptyInput(author);
 
             if (author.Length == 1)
             {
@@ -95,7 +97,7 @@ namespace Personal_Library_Management_System
         public static bool IsValidDate(string numString, bool isYear)
         {
             bool validNum = true;
-            validNum = IsEmptyString(numString);
+            validNum = IsEmptyInput(numString);
 
             int dateNumber;
             bool isNumber = int.TryParse(numString, out dateNumber);
@@ -151,7 +153,7 @@ namespace Personal_Library_Management_System
             return validNum;
         }
 
-        public static bool IsEmptyString(string userInput)
+        public static bool IsEmptyInput(string userInput)
         {
             bool validString = true;
             string trimInput = userInput.Trim();
@@ -164,15 +166,24 @@ namespace Personal_Library_Management_System
             return validString;
         }
 
-        public static string GetBookTitle()
+        public static string GetBookTitle(int addOrUpdate)
         {
             bool isValidTitle = true;
+
             string title = null;
+            int add = 0, update = 1;
             do
             {
                 Console.Write("Title: ");
                 title = Console.ReadLine();
-                isValidTitle = Book.IsValidTitle(title, PersonalLibrary.Books);
+                if (addOrUpdate == add)
+                {
+                    isValidTitle = IsValidTitle(title, PersonalLibrary.Books);
+                }
+                else if (addOrUpdate == update)
+                {
+                    isValidTitle = IsEmptyInput(title);
+                }
 
                 if (!isValidTitle)
                 {
@@ -197,7 +208,7 @@ namespace Personal_Library_Management_System
             {
                 Console.Write("Author: ");
                 author = Console.ReadLine();
-                isValidAuthor = Book.IsValidTitle(author, PersonalLibrary.Books);
+                isValidAuthor = IsValidTitle(author, PersonalLibrary.Books);
 
                 if (!isValidAuthor)
                 {
@@ -211,6 +222,134 @@ namespace Personal_Library_Management_System
             } while (!isValidAuthor);
 
             return author;
+        }
+
+        public static Genre GetGenre()
+        {
+            int numOfGenres = 0;
+            string genreChoice;
+            Genre genre = default;
+
+            //Display genre options
+            foreach (var item in Enum.GetValues(typeof(Genre)))
+            {
+                Console.WriteLine($"{(int)item + 1}-{item}");
+                numOfGenres++;
+            }
+
+            //Get user choice
+            Console.Write("\nChoose a genre by its number: ");
+            genreChoice = Console.ReadLine();
+            int genreNumber;
+            bool isNumber = int.TryParse(genreChoice, out genreNumber);
+
+            //Validate the user choice
+            while (genreNumber < 1 || genreNumber > numOfGenres || !isNumber)
+            {
+                Console.Write("\nInvalid choice!! Enter another choice: ");
+                genreChoice = Console.ReadLine();
+                isNumber = int.TryParse(genreChoice, out genreNumber);
+            }
+
+            foreach (var item in Enum.GetValues(typeof(Genre)))
+            {
+                if ((int)item + 1 == Int32.Parse(genreChoice))
+                {
+                    genre = (Genre)item;
+                    break;
+                }
+            }
+            Console.WriteLine(genre);
+            return genre;
+        }
+
+        public static int GetYear()
+        {
+            bool validYear = true;
+            bool isYear = true;
+            string stringYear = "";
+            int publicationYear;
+            do
+            {
+                Console.Write("Year: ");
+                stringYear = Console.ReadLine();
+                validYear = IsValidDate(stringYear, isYear);
+            } while (!validYear);
+
+            publicationYear = Int32.Parse(stringYear);
+
+            return publicationYear;
+        }
+
+
+        public static int GetMonth()
+        {
+            bool validMonth = true;
+            bool isYear = false;
+            string stringMonth;
+            int publicationMonth;
+            do
+            {
+                Console.Write("Month: ");
+                stringMonth = Console.ReadLine();
+                validMonth = IsValidDate(stringMonth, isYear);
+            } while (!validMonth);
+
+            publicationMonth = Int32.Parse(stringMonth);
+            return publicationMonth;
+        }
+
+        public static string GetSummary()
+        {
+            string hasSummary;  // "y" or "n"
+            string summary = "";
+            Console.Write("Do you want to add a summary? (y/n): ");
+            do
+            {
+                hasSummary = Console.ReadLine();
+                if (hasSummary.ToLower().Equals("y"))
+                {
+                    Console.Write("\nSummary: ");
+                    summary = Console.ReadLine();
+                }
+                else if (hasSummary.ToLower().Equals("n"))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.Write("Invalid input!! Enter (y/n): ");
+                }
+
+            } while (!hasSummary.ToLower().Equals("y") && !hasSummary.ToLower().Equals("n"));
+
+            return summary;
+        }
+
+        public static bool GetRent()
+        {
+            bool rent = false;
+            string stringRent = "";
+            do
+            {
+                Console.Write("Rent: (y/n) ");
+                stringRent = Console.ReadLine();
+                if (stringRent.ToLower().Equals("y"))
+                {
+                    rent = true;
+                }
+                else if (stringRent.ToLower().Equals("n"))
+                {
+                    rent = false;
+                }
+                else
+                {
+                    Console.Write("Invalid input!! Enter (y/n): ");
+                }
+
+            } while (!stringRent.ToLower().Equals("y") && !stringRent.ToLower().Equals("n"));
+
+            return rent;
         }
 
 
