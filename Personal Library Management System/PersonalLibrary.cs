@@ -47,10 +47,11 @@ namespace Personal_Library_Management_System
             }
         }
 
-        public void ViewAllBooks()
+        public void ViewAllBooks(string jsonFile)
         {
-
-            foreach (var book in Books)
+            List<Book> bookList = new List<Book>();
+            bookList = Load(jsonFile);
+            foreach (var book in bookList)
             {
                 Console.WriteLine(book.ToString());
                 Console.WriteLine("<<<<<<<<<<>>>>>>>>>>>");
@@ -58,9 +59,9 @@ namespace Personal_Library_Management_System
 
         }
 
-        public List<Book> Load(string filepath)
+        public List<Book> Load(string jsonFile)
         {
-            var bookJson = File.ReadAllText(filepath);
+            var bookJson = File.ReadAllText(jsonFile);
 
             Books = JsonSerializer.Deserialize<List<Book>>(bookJson);
             return Books;

@@ -40,8 +40,9 @@ namespace Personal_Library_Management_System
 
                         case "2":
                             Console.WriteLine("\n<<<-------- View All Books -------->>>\n");
-                            personalLibrary.ViewAllBooks();
+                            personalLibrary.ViewAllBooks(jsonFile);
                             break;
+
                         case "3": break;
                         case "4": break;
                         case "5": break;
