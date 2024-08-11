@@ -16,26 +16,42 @@ namespace Personal_Library_Management_System
         public List<Book> Books { set; get; }
 
 
-        public void AddBook(Book book, string filepath)
+        public void AddBook(Book book, string jsonFile, string txtFile)
         {
 
-            if (book != null) { 
-            Books = Load(filepath);
-            Books.Add(book);
-            var options = new JsonSerializerOptions();
-            options.WriteIndented = true;
+            if (book != null)
+            {
 
-            string updatedJsonBooks = JsonSerializer.Serialize<List<Book>>(Books, options);
+                try
+                {
+                    Books = Load(jsonFile);
+                    Books.Add(book);
+                    var options = new JsonSerializerOptions();
+                    options.WriteIndented = true;
 
-            File.WriteAllText(filepath, updatedJsonBooks);
+                    string updatedJsonBooks = JsonSerializer.Serialize<List<Book>>(Books, options);
 
-             }
+                    File.WriteAllText(jsonFile, updatedJsonBooks);
+
+              
+                    File.AppendAllText(txtFile, book.ToString());
+
+                }
+                catch (FileNotFoundException notFound)
+                {
+                    Console.WriteLine("Text File not found");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
         }
 
 
         public List<Book> Load(string filepath)
-        {            
-            var bookJson=File.ReadAllText(filepath);
+        {
+            var bookJson = File.ReadAllText(filepath);
 
             Books = JsonSerializer.Deserialize<List<Book>>(bookJson);
             return Books;

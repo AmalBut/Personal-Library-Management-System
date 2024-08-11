@@ -21,7 +21,7 @@ namespace Personal_Library_Management_System
         public string Title { get; set; }
         public string Author { get; set; }
         public Genre Genre { get; set; }
-        public DateTime Year { get; set; }
+        public string Year { get; set; }
 
         public string Summary { get; set; }
         private bool rent = false;
@@ -33,10 +33,10 @@ namespace Personal_Library_Management_System
 
         public override string ToString()
         {
-            return "Title: " + Title + "\nAuthor: " + Author + "\nGenre: " + Genre + "\nPublication year: " + Year + "\nSummary: " + Summary;
+            return "Title: " + Title + ", Author: " + Author + ", Genre: " + Genre + ", Publication year: " + Year + ", Summary: " + Summary + "\n";
         }
 
-        public static bool IsValidateTitle(string title, List<Book> bookList)
+        public static bool IsValidTitle(string title, List<Book> bookList)
         {
             bool validBook = true;
             bool bookFound = false;
@@ -65,7 +65,7 @@ namespace Personal_Library_Management_System
             return validBook;
         }
 
-        public static bool IsValidateAuthor(string author)
+        public static bool IsValidAuthor(string author)
         {
             bool validAuthor = true;
 
@@ -91,6 +91,65 @@ namespace Personal_Library_Management_System
             }
 
             return validAuthor;
+        }
+
+        public static bool IsValidDate(string numString, bool isYear)
+        {
+            bool validNum = true;
+            validNum = IsEmptyString(numString);
+
+            int dateNumber;
+            bool isNumber = int.TryParse(numString, out dateNumber);
+            int fartherYear = DateTime.Now.Year + 1;
+            bool isPositive = dateNumber > 0;
+            if (isYear)
+            {
+
+                if (numString.Length < 4 && isNumber && isPositive)
+                {
+                    Console.Write("Warning: This a very past year. If you want to modify it press Esc, or press any key to continue . . . ");
+
+                    if (Console.ReadKey().Key == ConsoleKey.Escape)
+                    {
+                        validNum = false;
+                    }
+                    else
+                    {
+                        validNum = true;
+                    }
+                    Console.WriteLine();
+
+                }
+
+                if (!isPositive)
+                {
+                    Console.WriteLine($"Error: There is no negative year");
+                    validNum = false;
+                }
+
+                if (dateNumber > fartherYear)
+                {
+                    Console.WriteLine($"Error: Cannot accept a year farther than {fartherYear}");
+                    validNum = false;
+                }
+            }
+            else
+            {
+                if ((dateNumber < 1 || dateNumber > 12) && isNumber)
+                {
+                    Console.WriteLine("Error: Invalid month!!");
+                    validNum = false;
+                }
+
+            }
+
+            if (!isNumber)
+            {
+                Console.WriteLine("Invalid choice!! Not a number");
+                validNum = false;
+            }
+
+            return validNum;
         }
 
         public static bool IsEmptyString(string userInput)

@@ -19,7 +19,7 @@ namespace Personal_Library_Management_System
                 Console.WriteLine("---------------------------------");
                 PersonalLibrary pl = new PersonalLibrary();
                 string jsonFile = "D:\\Jaffal\\Stage 2\\csharp\\Personal Library Management System\\Personal Library Management System\\Books.json";
-
+                string txtFile = "D:\\Jaffal\\Stage 2\\Personal Library Management System\\Personal Library Management System\\Books.txt";
                 pl.Load(jsonFile);
                 do
                 {
@@ -33,7 +33,8 @@ namespace Personal_Library_Management_System
                         case "1":
                             Console.WriteLine("\n<<<-------- Add Book -------->>>\n");
                             Book book = GetBookData(pl.Books);
-                            pl.AddBook(book, jsonFile);
+                            pl.AddBook(book, jsonFile, txtFile);
+                            Console.WriteLine("---------------------------------");
                             break;
 
                         case "2": break;
@@ -62,20 +63,21 @@ namespace Personal_Library_Management_System
 
         public static Book GetBookData(List<Book> bookList)
         {
-            string title = "", author = "", summary = "";
+            string title = "", author = "", summary = "", stringYear = "", stringMonth = "";
             int publicationYear, publicationMonth;
             string hasSummary;
             Genre genre = default;
 
             Console.WriteLine("Enter book information:\n");
 
+            //Get title
             bool validBook = true;
             bool esc = false;
             do
             {
                 Console.Write("Title: ");
                 title = Console.ReadLine();
-                validBook = Book.IsValidateTitle(title, bookList);
+                validBook = Book.IsValidTitle(title, bookList);
                 if (!validBook)
                 {
 
@@ -94,16 +96,16 @@ namespace Personal_Library_Management_System
                 return null;
             }
 
+            Console.WriteLine("------------");
 
-            /////////////////////////////////
-
+            //Get author
             bool validAuthor = true;
             esc = false;
             do
             {
                 Console.Write("Author: ");
                 author = Console.ReadLine();
-                validAuthor = Book.IsValidateAuthor(author);
+                validAuthor = Book.IsValidAuthor(author);
                 if (!validAuthor)
                 {
 
@@ -121,48 +123,81 @@ namespace Personal_Library_Management_System
             {
                 return null;
             }
+            Console.WriteLine("------------");
 
 
-            /////////////////////////////////
+            //Get genre
             Console.Write("Genre:\n");
             genre = ChooseGenre();
+            Console.WriteLine("------------");
 
-            //////////////////////////////////
 
-            Console.Write("Year of Publication: ");
+            //Get date
+            Console.WriteLine("Date of Publication:");
 
-            publicationYear = Int32.Parse(Console.ReadLine());
-            publicationMonth = Int32.Parse(Console.ReadLine());
-            int fartherYear = DateTime.Now.Year + 1;
-            if (publicationYear > fartherYear)
+            //year
+            bool validYear = true;
+            bool isYear = true;
+
+            do
             {
-                Console.WriteLine($"Error: Cannot enter a year further than {fartherYear}");
-                publicationYear = Int32.Parse(Console.ReadLine());
-            }
+                Console.Write("Year: ");
+                stringYear = Console.ReadLine();
+                validYear = Book.IsValidDate(stringYear, isYear);
+                Console.WriteLine();
+            } while (!validYear);
+
+            publicationYear = Int32.Parse(stringYear);
+
+            //Month
+            bool validMonth = true;
+            isYear = false;
+
+            do
+            {
+                Console.WriteLine();
+                Console.Write("Month: ");
+                stringMonth = Console.ReadLine();
+                validMonth = Book.IsValidDate(stringMonth, isYear);
+            } while (!validMonth);
+
+            publicationMonth = Int32.Parse(stringMonth);
 
             DateTime date = new DateTime(publicationYear, publicationMonth, 1);
 
-            //string dateFormat = "yyyy-MM";
-            //Console.WriteLine(d.ToString(dateFormat));
+            Console.WriteLine("------------");
 
-            Console.Write("\nDo you want to add a summary? (y/n)");
-            hasSummary = Console.ReadLine();
+            //Get summary
+            Console.Write("Do you want to add a summary? (y/n): ");
 
-            if (hasSummary.ToLower().Equals("y"))
+            do
             {
-                Console.Write("\nSummary: ");
-                summary = Console.ReadLine();
-            }
+                hasSummary = Console.ReadLine();
+                if (hasSummary.ToLower().Equals("y"))
+                {
+                    Console.Write("\nSummary: ");
+                    summary = Console.ReadLine();
+                }
+                else if (hasSummary.ToLower().Equals("n"))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.Write("Invalid input!! Enter (y/n): ");
+                }
 
+            } while (!hasSummary.ToLower().Equals("y") && !hasSummary.ToLower().Equals("n"));
+
+            //Create a book object
             Book book = new Book()
             {
                 Title = title,
                 Author = author,
                 Genre = genre,
-                Year = date,
+                Year = date.Year + "-" + date.Month,
                 Summary = summary
             };
-
 
             return book;
         }
@@ -173,19 +208,23 @@ namespace Personal_Library_Management_System
             string genreChoice;
             Genre genre = default;
 
+            //Display genre options
             foreach (var item in Enum.GetValues(typeof(Genre)))
             {
                 Console.WriteLine($"{(int)item + 1}-{item}");
                 numOfGenres++;
             }
 
+            //Get user choice
+            Console.Write("\nChoose a genre by its number: ");
             genreChoice = Console.ReadLine();
             int genreNumber;
             bool isNumber = int.TryParse(genreChoice, out genreNumber);
 
+            //Validate the user choice
             while (genreNumber < 1 || genreNumber > numOfGenres || !isNumber)
             {
-                Console.WriteLine("Invalid choices!! try again");
+                Console.Write("\nInvalid choice!! Enter another choice: ");
                 genreChoice = Console.ReadLine();
                 isNumber = int.TryParse(genreChoice, out genreNumber);
             }
@@ -200,7 +239,6 @@ namespace Personal_Library_Management_System
             }
             return genre;
         }
-
 
     }
 }
