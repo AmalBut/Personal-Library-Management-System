@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Personal_Library_Management_System
 {
@@ -164,6 +162,55 @@ namespace Personal_Library_Management_System
             }
 
             return validString;
+        }
+
+        public static string GetBookTitle()
+        {
+            bool isValidTitle = true;
+            string title = null;
+            do
+            {
+                Console.Write("Title: ");
+                title = Console.ReadLine();
+                isValidTitle = Book.IsValidTitle(title, PersonalLibrary.Books);
+
+                if (!isValidTitle)
+                {
+
+                    if (Console.ReadKey().Key == ConsoleKey.Escape)
+                    {
+                        return null;
+                    }
+                    Console.WriteLine("\n");
+                }
+
+            } while (!isValidTitle);
+
+            return title;
+        }
+
+        public static string GetBookAuthor()
+        {
+            bool isValidAuthor = true;
+            string author = null;
+            do
+            {
+                Console.Write("Author: ");
+                author = Console.ReadLine();
+                isValidAuthor = Book.IsValidTitle(author, PersonalLibrary.Books);
+
+                if (!isValidAuthor)
+                {
+                    if (Console.ReadKey().Key == ConsoleKey.Escape)
+                    {
+                        return null;
+                    }
+                    Console.WriteLine("\n");
+                }
+
+            } while (!isValidAuthor);
+
+            return author;
         }
 
 

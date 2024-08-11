@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Personal_Library_Management_System
 {
@@ -10,10 +7,10 @@ namespace Personal_Library_Management_System
     {
         void AddBook(Book book, string jsonFile, string txtFile);
         void ViewAllBooks(string jsonFile);
+
+        void UpdateBook(string title);
         List<Book> Load(string jsonFile);
-        /*void RentBook(Book book);
-         * 
-         void UpdateBook(Book book, string title);
+        /*void RentBook(Book book);     
          void DeleteBook(string title);
          Book SearchForBook(string title = "", string author = "");
          void Save(List<Book> books, string filepath);*/

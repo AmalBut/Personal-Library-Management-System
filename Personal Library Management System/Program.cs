@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Personal_Library_Management_System
 {
@@ -24,7 +20,7 @@ namespace Personal_Library_Management_System
                 personalLibrary.Load(jsonFile);
                 do
                 {
-                    Console.WriteLine("Menu:\n1-Add a Book\n2-View All Books\n3-Update a Book\n4-Delete a book\n5-Search for a Book\n6-Exit");
+                    Console.WriteLine("Menu:\n1-Add a Book\n2-View All Books\n3-Update book details\n4-Delete a book\n5-Search for a Book\n6-Exit");
                     Console.Write("\nEnter your choice: ");
                     choice = Console.ReadLine();
 
@@ -33,7 +29,7 @@ namespace Personal_Library_Management_System
                     {
                         case "1":
                             Console.WriteLine("\n<<<-------- Add Book -------->>>\n");
-                            Book book = GetBookData(personalLibrary.Books);
+                            Book book = GetBookData(PersonalLibrary.Books);
                             personalLibrary.AddBook(book, jsonFile, txtFile);
                             Console.WriteLine("---------------------------------");
                             break;
@@ -43,7 +39,13 @@ namespace Personal_Library_Management_System
                             personalLibrary.ViewAllBooks(jsonFile);
                             break;
 
-                        case "3": break;
+                        case "3":
+                            Console.WriteLine("\n<<<-------- Update Book Details -------->>>\n");
+                            Console.WriteLine("Enter the title of the book you wish to update: ");
+                            string updateTiltle = Book.GetBookTitle();
+                            personalLibrary.UpdateBook(updateTiltle);
+                            break;
+
                         case "4": break;
                         case "5": break;
                         case "6":
@@ -70,7 +72,7 @@ namespace Personal_Library_Management_System
 
         }
 
-        public static Book GetBookData(List<Book> bookList)
+        static Book GetBookData(List<Book> bookList)
         {
             string title = "", author = "", summary = "", stringYear = "", stringMonth = "";
             int publicationYear, publicationMonth;
@@ -80,55 +82,16 @@ namespace Personal_Library_Management_System
             Console.WriteLine("Enter book information:\n");
 
             //Get title
-            bool validBook = true;
-            bool esc = false;
-            do
-            {
-                Console.Write("Title: ");
-                title = Console.ReadLine();
-                validBook = Book.IsValidTitle(title, bookList);
-                if (!validBook)
-                {
-
-                    if (Console.ReadKey().Key == ConsoleKey.Escape)
-                    {
-                        esc = true;
-                        break;
-                    }
-                    Console.WriteLine("\n");
-                }
-
-            } while (!validBook);
-
-            if (esc)
+            title = Book.GetBookTitle();
+            if (title == null)
             {
                 return null;
             }
-
             Console.WriteLine("------------");
 
             //Get author
-            bool validAuthor = true;
-            esc = false;
-            do
-            {
-                Console.Write("Author: ");
-                author = Console.ReadLine();
-                validAuthor = Book.IsValidAuthor(author);
-                if (!validAuthor)
-                {
-
-                    if (Console.ReadKey().Key == ConsoleKey.Escape)
-                    {
-                        esc = true;
-                        break;
-                    }
-                    Console.WriteLine("\n");
-                }
-
-            } while (!validAuthor);
-
-            if (esc)
+            author = Book.GetBookAuthor();
+            if (author == null)
             {
                 return null;
             }
@@ -211,7 +174,7 @@ namespace Personal_Library_Management_System
             return book;
         }
 
-        public static Genre ChooseGenre()
+        static Genre ChooseGenre()
         {
             int numOfGenres = 0;
             string genreChoice;
@@ -249,6 +212,8 @@ namespace Personal_Library_Management_System
             Console.WriteLine(genre);
             return genre;
         }
+
+
 
     }
 }

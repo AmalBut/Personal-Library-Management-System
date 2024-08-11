@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text.Json;
 using System.IO;
-using System.Threading.Tasks;
 
 
 namespace Personal_Library_Management_System
@@ -12,7 +9,7 @@ namespace Personal_Library_Management_System
 
     public class PersonalLibrary : IPersonalLibrary
     {
-        public List<Book> Books { set; get; }
+        public static List<Book> Books { set; get; }
 
 
         public void AddBook(Book book, string jsonFile, string txtFile)
@@ -56,9 +53,31 @@ namespace Personal_Library_Management_System
                 Console.WriteLine(book.ToString());
                 Console.WriteLine("<<<<<<<<<<>>>>>>>>>>>");
             }
-
         }
 
+        public void UpdateBook(string title)
+        {
+            List<Book> bookList = Books;
+            bool bookFound = false;
+            //bool validTitle = true;
+            foreach (var book in bookList)
+            {
+                if (book.Title == title)
+                {
+                    Console.WriteLine("New title: ");
+                    string newTitle = Book.GetBookTitle();
+                    Console.WriteLine("New author: ");
+                    Book.GetBookAuthor();
+                    Console.WriteLine("New year: ");
+                    Console.WriteLine("New rent: ");
+                    Console.WriteLine("New summary: ");
+                    bookFound = true;
+                    break;
+                }
+
+            }
+
+        }
         public List<Book> Load(string jsonFile)
         {
             var bookJson = File.ReadAllText(jsonFile);
