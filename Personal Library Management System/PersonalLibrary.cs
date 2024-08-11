@@ -6,13 +6,12 @@ using System.Text.Json;
 using System.IO;
 using System.Threading.Tasks;
 
+
 namespace Personal_Library_Management_System
 {
 
     public class PersonalLibrary : IPersonalLibrary
     {
-        private List<Book> books = new List<Book>();
-
         public List<Book> Books { set; get; }
 
 
@@ -33,8 +32,8 @@ namespace Personal_Library_Management_System
 
                     File.WriteAllText(jsonFile, updatedJsonBooks);
 
-              
-                    File.AppendAllText(txtFile, book.ToString());
+                    File.WriteAllText(txtFile, updatedJsonBooks);
+
 
                 }
                 catch (FileNotFoundException notFound)
@@ -48,6 +47,16 @@ namespace Personal_Library_Management_System
             }
         }
 
+        public void ViewAllBooks()
+        {
+
+            foreach (var book in Books)
+            {
+                Console.WriteLine(book.ToString());
+                Console.WriteLine("<<<<<<<<<<>>>>>>>>>>>");
+            }
+
+        }
 
         public List<Book> Load(string filepath)
         {

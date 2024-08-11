@@ -50,3 +50,29 @@ D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management
 D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\obj\Debug\Personal.0C35B18E.Up2Date
 D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\obj\Debug\Personal Library Management System.exe
 D:\Jaffal\Stage 2\Personal Library Management System\Personal Library Management System\obj\Debug\Personal Library Management System.pdb
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\obj\Debug\Personal Library Management System.csproj.AssemblyReference.cache
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\obj\Debug\Personal Library Management System.csproj.CoreCompileInputs.cache
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\obj\Debug\Personal Library Management System.exe
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\obj\Debug\Personal Library Management System.pdb
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\Personal Library Management System.exe.config
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\Personal Library Management System.exe
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\Personal Library Management System.pdb
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\System.Buffers.dll
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\System.Memory.dll
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\System.Text.Json.dll
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\System.ValueTuple.dll
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\System.Buffers.xml
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\System.Memory.xml
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\System.Text.Json.xml
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\bin\Debug\System.ValueTuple.xml
+C:\Users\Microsoft\OneDrive\سطح المكتب\Library\Personal-Library-Management-System\Personal Library Management System\Personal Library Management System\obj\Debug\Personal.0C35B18E.Up2Date

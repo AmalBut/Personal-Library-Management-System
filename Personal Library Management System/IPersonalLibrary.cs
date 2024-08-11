@@ -9,10 +9,10 @@ namespace Personal_Library_Management_System
     public interface IPersonalLibrary
     {
         void AddBook(Book book, string jsonFile, string txtFile);
-
+        void ViewAllBooks();
         List<Book> Load(string filepath);
         /*void RentBook(Book book);
-         * List<Book> GetAllBooks();
+         * 
          void UpdateBook(Book book, string title);
          void DeleteBook(string title);
          Book SearchForBook(string title = "", string author = "");

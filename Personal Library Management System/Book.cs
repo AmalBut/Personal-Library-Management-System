@@ -23,17 +23,18 @@ namespace Personal_Library_Management_System
         public Genre Genre { get; set; }
         public string Year { get; set; }
 
-        public string Summary { get; set; }
         private bool rent = false;
         public bool Rent
         {
             get { return rent; }
             set { rent = value; }
         }
+        public string Summary { get; set; }
+
 
         public override string ToString()
         {
-            return "Title: " + Title + ", Author: " + Author + ", Genre: " + Genre + ", Publication year: " + Year + ", Summary: " + Summary + "\n";
+            return "Title: " + Title + "\nAuthor: " + Author + "\nGenre: " + Genre + "\nPublication year: " + Year + "\nRent: " + Rent + "\nSummary: " + Summary + "\n";
         }
 
         public static bool IsValidTitle(string title, List<Book> bookList)
@@ -81,7 +82,7 @@ namespace Personal_Library_Management_System
             char[] specialChar = {
                 '\\', '|', '!', '#', '$', '%', '&', '/', '(', ')',
                 '=', '?', '»', '«', '@', '£', '§', '€', '{', '}',
-                ';', '\'', '<', '>', '_', ',', '*', '+'
+                ';', '\'', '<', '>', ',', '*', '+'
             };
 
             if (author.IndexOfAny(specialChar) != -1)

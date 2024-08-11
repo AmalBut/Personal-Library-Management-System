@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +18,10 @@ namespace Personal_Library_Management_System
                 string choice;
                 Console.WriteLine("Welcome to your Personal Libaray");
                 Console.WriteLine("---------------------------------");
-                PersonalLibrary pl = new PersonalLibrary();
-                string jsonFile = "D:\\Jaffal\\Stage 2\\csharp\\Personal Library Management System\\Personal Library Management System\\Books.json";
-                string txtFile = "D:\\Jaffal\\Stage 2\\Personal Library Management System\\Personal Library Management System\\Books.txt";
-                pl.Load(jsonFile);
+                PersonalLibrary personalLibrary = new PersonalLibrary();
+                string jsonFile = "C:\\Users\\Microsoft\\OneDrive\\سطح المكتب\\Library\\Personal-Library-Management-System\\Personal Library Management System\\Personal Library Management System\\Books.json";
+                string txtFile = "C:\\Users\\Microsoft\\OneDrive\\سطح المكتب\\Library\\Personal-Library-Management-System\\Personal Library Management System\\Personal Library Management System\\Books.txt";
+                personalLibrary.Load(jsonFile);
                 do
                 {
                     Console.WriteLine("Menu:\n1-Add a Book\n2-View All Books\n3-Update a Book\n4-Delete a book\n5-Search for a Book\n6-Exit");
@@ -32,12 +33,15 @@ namespace Personal_Library_Management_System
                     {
                         case "1":
                             Console.WriteLine("\n<<<-------- Add Book -------->>>\n");
-                            Book book = GetBookData(pl.Books);
-                            pl.AddBook(book, jsonFile, txtFile);
+                            Book book = GetBookData(personalLibrary.Books);
+                            personalLibrary.AddBook(book, jsonFile, txtFile);
                             Console.WriteLine("---------------------------------");
                             break;
 
-                        case "2": break;
+                        case "2":
+                            Console.WriteLine("\n<<<-------- View All Books -------->>>\n");
+                            personalLibrary.ViewAllBooks();
+                            break;
                         case "3": break;
                         case "4": break;
                         case "5": break;
@@ -56,7 +60,11 @@ namespace Personal_Library_Management_System
             }
             catch (FileNotFoundException e)
             {
-                Console.WriteLine(e);
+                Console.WriteLine(e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
 
         }
@@ -237,6 +245,7 @@ namespace Personal_Library_Management_System
                     break;
                 }
             }
+            Console.WriteLine(genre);
             return genre;
         }
 
