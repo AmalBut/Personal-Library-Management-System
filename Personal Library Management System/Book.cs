@@ -36,7 +36,7 @@ namespace Personal_Library_Management_System
             return "Title: " + Title + "\nAuthor: " + Author + "\nGenre: " + Genre + "\nPublication year: " + Year + "\nRent: " + Rent + "\nSummary: " + Summary + "\n";
         }
 
-        public static bool IsValidTitle(string title, List<Book> bookList)
+        private static bool IsValidTitle(string title, List<Book> bookList)
         {
             bool validBook = true;
             bool bookFound = false;

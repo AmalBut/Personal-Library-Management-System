@@ -16,11 +16,11 @@
     "Summary": "A novel that deals with serious issues like racial injustice and moral growth in the Deep South."
   },
   {
-    "Title": "1984",
-    "Author": "George Orwell",
-    "Genre": 3,
-    "Year": "1949-06",
+    "Title": "1111",
+    "Author": "ffff",
+    "Genre": 4,
+    "Year": "1444-10",
     "Rent": false,
-    "Summary": "A dystopian novel that explores the dangers of totalitarianism and extreme political ideology."
+    "Summary": ""
   }
 ]

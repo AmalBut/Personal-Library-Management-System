@@ -21,7 +21,7 @@ namespace Personal_Library_Management_System
                 personalLibrary.Load(jsonFile);
                 do
                 {
-                    Console.WriteLine("\nMenu:\n1-Add a Book\n2-View All Books\n3-Update book details\n4-Delete a book\n5-Search for a Book\n6-Exit");
+                    Console.WriteLine("\nMenu:\n1-Add a Book\n2-View All Books\n3-Update Book Details\n4-Delete a Book\n5-Search for a Book\n6-Rent a Book\n7-View All Rent Books\n8-Exit");
                     Console.Write("\nEnter your choice: ");
                     choice = Console.ReadLine();
                     int updateBook = 1;
@@ -38,7 +38,6 @@ namespace Personal_Library_Management_System
                         case "2":
                             Console.WriteLine("\n<<<-------- View All Books -------->>>\n");
                             personalLibrary.ViewAllBooks(jsonFile);
-
                             break;
 
                         case "3":
@@ -57,8 +56,25 @@ namespace Personal_Library_Management_System
                             Console.WriteLine("---------------------------------");
                             break;
 
-                        case "5": break;
+                        case "5": /////search for a book
+                            break;
+
                         case "6":
+                            Console.WriteLine("\n<<<-------- Rent a Book -------->>>\n");
+                            Console.WriteLine("Enter the title of the book you wish to rent: ");
+                            string rentTitle = Book.GetBookTitle(updateBook);
+                            personalLibrary.RentBook(rentTitle, jsonFile, txtFile);
+                            Console.WriteLine("---------------------------------");
+                            break;
+
+                        case "7":
+                            Console.WriteLine("\n<<<-------- View All Rent Books -------->>>\n");
+                            personalLibrary.ViewAllRentBooks(jsonFile);
+                            Console.WriteLine("---------------------------------");
+                            break;
+
+
+                        case "8":
                             Console.WriteLine("Thank you for using Personal Library. Have a great day and happy reading :) ");
                             System.Environment.Exit(0); break;
 

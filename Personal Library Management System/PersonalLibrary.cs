@@ -175,6 +175,79 @@ namespace Personal_Library_Management_System
             }
         }
 
+        public void RentBook(string title, string jsonFile, string txtFile)
+        {
+            List<Book> bookList = Load(jsonFile);
+            bool bookFound = false;
+
+            foreach (var book in bookList)
+            {
+                if (book.Title == title && !book.Rent)
+                {
+
+                    book.Rent = true;
+                    bookFound = true;
+                    break;
+                }
+            }
+
+            if (bookFound)
+            {
+                string save = "";
+                Console.Write("Do you want to ensure renting ? (y/n): ");
+                do
+                {
+                    save = Console.ReadLine();
+                    if (save.ToLower().Equals("y"))
+                    {
+                        Books = bookList;
+                        SaveInFiles(jsonFile, txtFile);
+                        Console.WriteLine($"Book {title} was rent successfully");
+
+                    }
+                    else if (save.ToLower().Equals("n"))
+                    {
+                        Console.WriteLine("Sorry! No rent was done");
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Invalid input!! Enter (y/n): ");
+                    }
+
+                } while (!save.ToLower().Equals("y") && !save.ToLower().Equals("n"));
+
+            }
+            else
+            {
+                Console.WriteLine("Sorry! Book not found to be deleted.");
+
+            }
+
+        }
+
+        public void ViewAllRentBooks(string jsonFile)
+        {
+            Books = Load(jsonFile);
+            List<Book> rentList = new List<Book>();
+            bool rentFound = false;
+            foreach (var book in Books)
+            {
+                if (book.Rent)
+                {
+                    Console.WriteLine(book.ToString());
+                    Console.WriteLine("<<<<<<<<<<>>>>>>>>>>>");
+                    rentFound = true;
+                }
+            }
+
+            if (!rentFound)
+            {
+                Console.WriteLine("No rent books to view");
+            }
+
+        }
+
 
         public List<Book> Load(string jsonFile)
         {
@@ -195,6 +268,8 @@ namespace Personal_Library_Management_System
 
             File.WriteAllText(txtFile, updatedJsonBooks);
         }
+
+
 
     }
 }
