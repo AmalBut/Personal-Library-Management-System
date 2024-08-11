@@ -24,7 +24,7 @@ namespace Personal_Library_Management_System
                     Console.WriteLine("\nMenu:\n1-Add a Book\n2-View All Books\n3-Update book details\n4-Delete a book\n5-Search for a Book\n6-Exit");
                     Console.Write("\nEnter your choice: ");
                     choice = Console.ReadLine();
-
+                    int updateBook = 1;
 
                     switch (choice)
                     {
@@ -44,13 +44,19 @@ namespace Personal_Library_Management_System
                         case "3":
                             Console.WriteLine("\n<<<-------- Update Book Details -------->>>\n");
                             Console.WriteLine("Enter the title of the book you wish to update: ");
-                            int updateBook = 1;
                             string updateTitle = Book.GetBookTitle(updateBook);
                             personalLibrary.UpdateBook(updateTitle, jsonFile, txtFile);
                             Console.WriteLine("---------------------------------");
                             break;
 
-                        case "4": break;
+                        case "4":
+                            Console.WriteLine("\n<<<-------- Delete a Book -------->>>\n");
+                            Console.WriteLine("Enter the title of the book you wish to delete: ");
+                            string deleteTitle = Book.GetBookTitle(updateBook);
+                            personalLibrary.DeleteBook(deleteTitle, jsonFile, txtFile);
+                            Console.WriteLine("---------------------------------");
+                            break;
+
                         case "5": break;
                         case "6":
                             Console.WriteLine("Thank you for using Personal Library. Have a great day and happy reading :) ");

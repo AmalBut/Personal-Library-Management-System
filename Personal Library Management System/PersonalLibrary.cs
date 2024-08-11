@@ -50,11 +50,10 @@ namespace Personal_Library_Management_System
 
         public void UpdateBook(string title, string jsonFile, string txtFile)
         {
-            List<Book> bookList = Books;
+            List<Book> bookList = Load(jsonFile);
             bool bookFound = false;
             string oldBook = "";
             string modifiedBook = "";
-            //bool validTitle = true;
             foreach (var book in bookList)
             {
                 if (book.Title == title)
@@ -90,7 +89,7 @@ namespace Personal_Library_Management_System
             if (bookFound)
             {
                 string save = "";
-                Console.WriteLine("Do you want to save changes ? (y/n)");
+                Console.Write("Do you want to save changes ? (y/n): ");
                 do
                 {
                     save = Console.ReadLine();
@@ -106,8 +105,7 @@ namespace Personal_Library_Management_System
                     }
                     else if (save.ToLower().Equals("n"))
                     {
-                        Console.WriteLine("Sorry! No modification done");
-                        Console.WriteLine("---------------------------------");
+                        Console.WriteLine("Sorry! No modification was done");
                         break;
                     }
                     else
@@ -121,13 +119,63 @@ namespace Personal_Library_Management_System
             else
             {
                 Console.WriteLine("Sorry! Book not found to be modified.");
-                Console.WriteLine("---------------------------------");
 
+            }
+        }
+
+
+        public void DeleteBook(string title, string jsonFile, string txtFile)
+        {
+            List<Book> bookList = Load(jsonFile);
+            bool bookFound = false;
+
+            foreach (var book in bookList)
+            {
+                if (book.Title == title)
+                {
+
+                    bookList.Remove(book);
+                    bookFound = true;
+                    break;
+                }
             }
 
 
+            if (bookFound)
+            {
+                string save = "";
+                Console.Write("Do you want to save changes ? (y/n): ");
+                do
+                {
+                    save = Console.ReadLine();
+                    if (save.ToLower().Equals("y"))
+                    {
+                        Books = bookList;
+                        SaveInFiles(jsonFile, txtFile);
+                        Console.WriteLine($"Book {title} was deleted successfully");
 
+                    }
+                    else if (save.ToLower().Equals("n"))
+                    {
+                        Console.WriteLine("Sorry! No deletion was done");
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Invalid input!! Enter (y/n): ");
+                    }
+
+                } while (!save.ToLower().Equals("y") && !save.ToLower().Equals("n"));
+
+            }
+            else
+            {
+                Console.WriteLine("Sorry! Book not found to be deleted.");
+
+            }
         }
+
+
         public List<Book> Load(string jsonFile)
         {
             var bookJson = File.ReadAllText(jsonFile);

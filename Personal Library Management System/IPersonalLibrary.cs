@@ -11,9 +11,11 @@ namespace Personal_Library_Management_System
         void UpdateBook(string title, string jsonFile, string txtFile);
 
         void SaveInFiles(string jsonFile, string txtFile);
+
+        void DeleteBook(string title, string jsonFile, string txtFile);
         List<Book> Load(string jsonFile);
         /*void RentBook(Book book);     
-         void DeleteBook(string title);
+        
          Book SearchForBook(string title = "", string author = "");
          */
         //
