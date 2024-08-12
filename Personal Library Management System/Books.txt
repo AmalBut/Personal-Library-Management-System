@@ -30,5 +30,21 @@
     "Year": "1444-10",
     "IsRent": false,
     "Summary": ""
+  },
+  {
+    "Title": "5555",
+    "Author": "1111",
+    "Genre": 0,
+    "Year": "20-1",
+    "IsRent": true,
+    "Summary": "jj"
+  },
+  {
+    "Title": "111",
+    "Author": "333",
+    "Genre": 3,
+    "Year": "2014-8",
+    "IsRent": true,
+    "Summary": ""
   }
 ]

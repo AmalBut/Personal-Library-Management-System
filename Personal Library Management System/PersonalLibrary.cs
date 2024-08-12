@@ -249,7 +249,7 @@ namespace Personal_Library_Management_System
             }
             else
             {
-                Console.WriteLine("Sorry! Book not found to be deleted.");
+                Console.WriteLine("Sorry! Book not found to be rent.");
 
             }
 
@@ -279,15 +279,21 @@ namespace Personal_Library_Management_System
         public List<Book> SearchForBook(string jsonFile, string title = "", string author = "")
         {
             List<Book> bookList = Load(jsonFile);
-            //   Book searchedBook = null;
             List<Book> searchedBookList = new List<Book>();
             bool emptyTitle = title.Equals("");
             bool emptyAuthor = author.Equals("");
 
             foreach (var book in bookList)
             {
-                bool isAuthorSubstring = book.Author.Contains(author);
-                bool isTitleSubstring = book.Title.Contains(title);
+                string bookAuthorLowerCase = book.Author.ToLower();
+                string bookTitleLowerCase = book.Title.ToLower();
+
+                string searchAuthorLowerCase = author.ToLower();
+                string searchTitleLowerCase = title.ToLower();
+
+                bool isAuthorSubstring = bookAuthorLowerCase.Contains(searchAuthorLowerCase);
+                bool isTitleSubstring = bookTitleLowerCase.Contains(searchTitleLowerCase);
+
 
                 if (isTitleSubstring && emptyAuthor && !emptyTitle)
                 {

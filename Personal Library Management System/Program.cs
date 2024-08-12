@@ -21,7 +21,7 @@ namespace Personal_Library_Management_System
                 personalLibrary.Load(jsonFile);
                 do
                 {
-                    //Console.WriteLine("a");
+                    Console.WriteLine("a");
                     Console.WriteLine("Menu:\n1-Add a Book\n2-View All Books\n3-Update Book Details\n4-Delete a Book\n5-Search for a Book\n6-Rent a Book\n7-View All Rent Books\n8-Exit");
                     Console.Write("\nEnter your choice: ");
                     choice = Console.ReadLine();

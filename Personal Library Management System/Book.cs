@@ -59,7 +59,7 @@ namespace Personal_Library_Management_System
             if (bookFound)
             {
                 validBook = false;
-                Console.Write("Error: Book is already exist!! Press Esc to cancel or any other key to try again . . . ");
+                Console.Write("\nError: Book is already exist!! Press Esc to cancel or any other key to try again . . . ");
             }
 
             return validBook;
@@ -83,32 +83,34 @@ namespace Personal_Library_Management_System
                 }
                 else
                 {
-                    Console.Write("Error: There is no name of 1 character !! Press Esc to cancel or any other key to try again . . . ");
+                    Console.Write("\nError: There is no name of 1 character !! Press Esc to cancel or any other key to try again . . . ");
                 }
 
             }
 
-            char[] specialChar = {
-                '\\', '|', '!', '#', '$', '%', '&', '/', '(', ')',
-                '=', '?', '»', '«', '@', '£', '§', '€', '{', '}',
-                ';', '\'', '<', '>', ',', '*', '+'
-            };
 
-            if (author.IndexOfAny(specialChar) != -1)
+            foreach (char character in author)
             {
-                validAuthor = false;
-                if (forUpdate == 1)
-                {
-                    Console.WriteLine("Error: Name could not contain special characters!! ");
-                }
-                else
-                {
-                    Console.Write("Error: Name could not contain special characters!! Press Esc to cancel or any other key to try again . . . ");
-                }
+                bool isLetterOrSpace = (character >= 'A' && character <= 'Z') || (character >= 'a' && character <= 'z') || character == ' ';
 
+                if (!isLetterOrSpace)
+                {
+                    validAuthor = false;
+
+                    if (forUpdate == 1)
+                    {
+                        Console.WriteLine("Error: Name could not contain special characters!! ");
+                    }
+                    else
+                    {
+                        Console.Write("\nError: Name could not contain special characters!! Press Esc to cancel or any other key to try again . . . ");
+                    }
+                    break;
+                }
             }
 
             return validAuthor;
+
         }
 
         public static bool IsValidDate(string numString, bool isYear)
@@ -125,16 +127,8 @@ namespace Personal_Library_Management_System
 
                 if (numString.Length < 4 && isNumber && isPositive)
                 {
-                    Console.Write("Warning: This a very past year. If you want to modify it press Esc, or press any key to continue . . . ");
-
-                    if (Console.ReadKey().Key == ConsoleKey.Escape)
-                    {
-                        validNum = false;
-                    }
-                    else
-                    {
-                        validNum = true;
-                    }
+                    Console.Write("Warning: This a very past year. Try again...");
+                    validNum = false;
                     Console.WriteLine();
 
                 }
@@ -177,7 +171,7 @@ namespace Personal_Library_Management_System
             if (userInput.Equals("") || trimInput.Equals(""))
             {
                 validString = false;
-                Console.Write("Error: Must enter a value!! Press Esc to cancel or any other key to try again . . . ");
+                Console.Write("\nError: Must enter a value!! Press Esc to cancel or any other key to try again . . . ");
             }
 
             return validString;
@@ -226,7 +220,7 @@ namespace Personal_Library_Management_System
             {
                 Console.Write("Author: ");
                 author = Console.ReadLine();
-                isValidAuthor = IsValidTitle(author, PersonalLibrary.Books);
+                isValidAuthor = IsValidAuthor(author);
 
                 if (!isValidAuthor)
                 {
