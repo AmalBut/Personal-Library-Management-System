@@ -252,22 +252,27 @@ namespace Personal_Library_Management_System
             List<Book> bookList = Load(jsonFile);
             //   Book searchedBook = null;
             List<Book> searchedBookList = new List<Book>();
+            bool emptyTitle = title.Equals("");
+            bool emptyAuthor = author.Equals("");
 
             foreach (var book in bookList)
             {
-                if (book.Title.Equals(title) && author.Equals(""))
+                bool isAuthorSubstring = book.Author.Contains(author);
+                bool isTitleSubstring = book.Title.Contains(title);
+
+                if (isTitleSubstring && emptyAuthor && !emptyTitle)
                 {
                     searchedBookList.Add(book);
-                    break;
+
                 }
-                else if (title.Equals("") && book.Author.Equals(author))
+                else if (isAuthorSubstring && !emptyAuthor && emptyTitle)
                 {
                     searchedBookList.Add(book);
                 }
-                else if (book.Title.Equals(title) && book.Author.Equals(author))
+                else if (isTitleSubstring && isAuthorSubstring && !emptyTitle && !emptyAuthor)
                 {
                     searchedBookList.Add(book);
-                    break;
+
                 }
             }
             return searchedBookList;
@@ -310,6 +315,10 @@ namespace Personal_Library_Management_System
 
         public List<Book> Load(string jsonFile)
         {
+            if (!File.Exists(jsonFile))
+            {
+                throw new FileNotFoundException("File Not Found");
+            }
             var bookJson = File.ReadAllText(jsonFile);
 
             Books = JsonSerializer.Deserialize<List<Book>>(bookJson);

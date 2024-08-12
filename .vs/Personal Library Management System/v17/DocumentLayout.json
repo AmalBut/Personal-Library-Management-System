@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Microsoft\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Library\\Personal-Library-Management-System\\Personal Library Management System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F3C6B804-8351-4BDD-B655-0F1E66569F34}|Personal Library Management System\\Personal Library Management System.csproj|C:\\Users\\Microsoft\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Library\\Personal-Library-Management-System\\Personal Library Management System\\personal library management system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F3C6B804-8351-4BDD-B655-0F1E66569F34}|Personal Library Management System\\Personal Library Management System.csproj|solutionrelative:personal library management system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F3C6B804-8351-4BDD-B655-0F1E66569F34}|Personal Library Management System\\Personal Library Management System.csproj|C:\\Users\\Microsoft\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Library\\Personal-Library-Management-System\\Personal Library Management System\\personal library management system\\personallibrary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F3C6B804-8351-4BDD-B655-0F1E66569F34}|Personal Library Management System\\Personal Library Management System.csproj|solutionrelative:personal library management system\\personallibrary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F3C6B804-8351-4BDD-B655-0F1E66569F34}|Personal Library Management System\\Personal Library Management System.csproj|c:\\users\\microsoft\\onedrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\library\\personal-library-management-system\\personal library management system\\personal library management system\\personallibrary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F3C6B804-8351-4BDD-B655-0F1E66569F34}|Personal Library Management System\\Personal Library Management System.csproj|solutionrelative:personal library management system\\personallibrary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F3C6B804-8351-4BDD-B655-0F1E66569F34}|Personal Library Management System\\Personal Library Management System.csproj|c:\\users\\microsoft\\onedrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\library\\personal-library-management-system\\personal library management system\\personal library management system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F3C6B804-8351-4BDD-B655-0F1E66569F34}|Personal Library Management System\\Personal Library Management System.csproj|solutionrelative:personal library management system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F3C6B804-8351-4BDD-B655-0F1E66569F34}|Personal Library Management System\\Personal Library Management System.csproj|C:\\Users\\Microsoft\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Library\\Personal-Library-Management-System\\Personal Library Management System\\personal library management system\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,8 +26,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -55,33 +67,21 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "PersonalLibrary.cs",
               "DocumentMoniker": "C:\\Users\\Microsoft\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Library\\Personal-Library-Management-System\\Personal Library Management System\\Personal Library Management System\\PersonalLibrary.cs",
               "RelativeDocumentMoniker": "Personal Library Management System\\PersonalLibrary.cs",
               "ToolTip": "C:\\Users\\Microsoft\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Library\\Personal-Library-Management-System\\Personal Library Management System\\Personal Library Management System\\PersonalLibrary.cs",
               "RelativeToolTip": "Personal Library Management System\\PersonalLibrary.cs",
-              "ViewState": "AQIAADYBAAAAAAAAAAAqwEsBAAAAAAAA",
+              "ViewState": "AQIAAAQBAAAAAAAAAAAmwMsAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-11T08:10:50.184Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Microsoft\\OneDrive\\\u0633\u0637\u062D \u0627\u0644\u0645\u0643\u062A\u0628\\Library\\Personal-Library-Management-System\\Personal Library Management System\\Personal Library Management System\\Program.cs",
               "RelativeDocumentMoniker": "Personal Library Management System\\Program.cs",
