@@ -30,13 +30,14 @@ namespace Personal_Library_Management_System
         }
         public string Summary { get; set; }
 
+        public Book() { }
 
         public override string ToString()
         {
             return "Title: " + Title + "\nAuthor: " + Author + "\nGenre: " + Genre + "\nPublication year: " + Year + "\nRent: " + IsRent + "\nSummary: " + Summary + "\n";
         }
 
-        private static bool IsValidTitle(string title, List<Book> bookList)
+        private bool IsValidTitle(string title, List<Book> bookList)
         {
             bool validBook = true;
             bool bookFound = false;
@@ -66,7 +67,7 @@ namespace Personal_Library_Management_System
         }
 
 
-        public static bool IsValidAuthor(string author, int forUpdate = 0)
+        public bool IsValidAuthor(string author, int forUpdate = 0)
         {
             bool validAuthor = true;
 
@@ -113,7 +114,7 @@ namespace Personal_Library_Management_System
 
         }
 
-        public static bool IsValidDate(string numString, bool isYear)
+        public bool IsValidDate(string numString, bool isYear)
         {
             bool validNum = true;
             validNum = IsEmptyInput(numString);
@@ -164,7 +165,7 @@ namespace Personal_Library_Management_System
             return validNum;
         }
 
-        public static bool IsEmptyInput(string userInput)
+        public bool IsEmptyInput(string userInput)
         {
             bool validString = true;
             string trimInput = userInput.Trim();
@@ -177,11 +178,12 @@ namespace Personal_Library_Management_System
             return validString;
         }
 
-        public static string GetBookTitle(int addOrUpdate)
+        public string GetBookTitle(int addOrUpdate)
         {
             bool isValidTitle = true;
-            string title = null;
+            string title = "";
             int add = 0, update = 1;
+            PersonalLibrary personalLibrary = new PersonalLibrary();
 
             do
             {
@@ -212,7 +214,7 @@ namespace Personal_Library_Management_System
             return title;
         }
 
-        public static string GetBookAuthor()
+        public string GetBookAuthor()
         {
             bool isValidAuthor = true;
             string author = null;
@@ -236,7 +238,7 @@ namespace Personal_Library_Management_System
             return author;
         }
 
-        public static Genre GetGenre(int forUpdate = 0)
+        public Genre GetGenre(int forUpdate = 0)
         {
             int numOfGenres = 0;
             string genreChoice;
@@ -281,7 +283,7 @@ namespace Personal_Library_Management_System
             return genre;
         }
 
-        public static int GetYear()
+        public int GetYear()
         {
             bool validYear = true;
             bool isYear = true;
@@ -300,7 +302,7 @@ namespace Personal_Library_Management_System
         }
 
 
-        public static int GetMonth()
+        public int GetMonth()
         {
             bool validMonth = true;
             bool isYear = false;
@@ -317,7 +319,7 @@ namespace Personal_Library_Management_System
             return publicationMonth;
         }
 
-        public static string GetSummary()
+        public string GetSummary()
         {
             string hasSummary;  // "y" or "n"
             string summary = "";
@@ -344,7 +346,7 @@ namespace Personal_Library_Management_System
             return summary;
         }
 
-        public static bool GetRent(int forUpdate = 0)
+        public bool GetRent(int forUpdate = 0)
         {
             bool rent = false;
             string stringRent = "";
@@ -373,8 +375,7 @@ namespace Personal_Library_Management_System
             return rent;
         }
 
-
-
+       
     }
 
 }

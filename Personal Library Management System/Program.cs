@@ -7,6 +7,7 @@ namespace Personal_Library_Management_System
 {
     public class Program
     {
+        public static Book bookObject = new Book();
         static void Main(string[] args)
         {
             try
@@ -16,8 +17,8 @@ namespace Personal_Library_Management_System
                 Console.WriteLine("---------------------------------");
                 PersonalLibrary personalLibrary = new PersonalLibrary();
 
-                string jsonFile = "C:\\Users\\Microsoft\\OneDrive\\سطح المكتب\\Library\\Personal-Library-Management-System\\Personal Library Management System\\Personal Library Management System\\Books.json";
-                string txtFile = "C:\\Users\\Microsoft\\OneDrive\\سطح المكتب\\Library\\Personal-Library-Management-System\\Personal Library Management System\\Personal Library Management System\\Books.txt";
+                string jsonFile = "Books.json";
+                string txtFile = "Books.txt";
                 personalLibrary.Load(jsonFile);
                 do
                 {
@@ -31,7 +32,7 @@ namespace Personal_Library_Management_System
                     {
                         case "1":
                             Console.WriteLine("\n<<<-------- Add Book -------->>>\n");
-                            Book book = GetBookData(PersonalLibrary.Books);
+                            Book book = personalLibrary.GetBookData(PersonalLibrary.Books);
                             personalLibrary.AddBook(book, jsonFile, txtFile);
                             Console.WriteLine("---------------------------------");
                             break;
@@ -44,7 +45,7 @@ namespace Personal_Library_Management_System
                         case "3":
                             Console.WriteLine("\n<<<-------- Update Book Details -------->>>\n");
                             Console.WriteLine("Enter the title of the book you wish to update: ");
-                            string updateTitle = Book.GetBookTitle(updateBook);
+                            string updateTitle = bookObject.GetBookTitle(updateBook);
                             personalLibrary.UpdateBook(updateTitle, jsonFile, txtFile);
                             Console.WriteLine("---------------------------------");
                             break;
@@ -52,7 +53,7 @@ namespace Personal_Library_Management_System
                         case "4":
                             Console.WriteLine("\n<<<-------- Delete a Book -------->>>\n");
                             Console.WriteLine("Enter the title of the book you wish to delete: ");
-                            string deleteTitle = Book.GetBookTitle(updateBook);
+                            string deleteTitle = bookObject.GetBookTitle(updateBook);
                             personalLibrary.DeleteBook(deleteTitle, jsonFile, txtFile);
                             Console.WriteLine("---------------------------------");
                             break;
@@ -68,7 +69,7 @@ namespace Personal_Library_Management_System
                         case "6":
                             Console.WriteLine("\n<<<-------- Rent a Book -------->>>\n");
                             Console.WriteLine("Enter the title of the book you wish to Rent: ");
-                            string rentTitle = Book.GetBookTitle(updateBook);
+                            string rentTitle = bookObject.GetBookTitle(updateBook);
                             personalLibrary.RentBook(rentTitle, jsonFile, txtFile);
                             Console.WriteLine("---------------------------------");
                             break;
@@ -104,65 +105,7 @@ namespace Personal_Library_Management_System
 
         }
 
-        static Book GetBookData(List<Book> bookList)
-        {
-            string title = "", author = "", summary = "";
-            int publicationYear, publicationMonth;
-            Genre genre = default;
 
-            Console.WriteLine("Enter book information:\n");
-
-            //Get title
-            int addBook = 0;
-            title = Book.GetBookTitle(addBook);
-            if (title == "")
-            {
-                return null;
-            }
-            Console.WriteLine("------------");
-
-            //Get author
-            author = Book.GetBookAuthor();
-            if (author == null)
-            {
-                return null;
-            }
-            Console.WriteLine("------------");
-
-
-            //Get genre
-            Console.Write("Genre:\n");
-            genre = Book.GetGenre();
-            Console.WriteLine("------------");
-
-
-            //Get date
-            Console.WriteLine("Date of Publication:");
-
-            //year
-            publicationYear = Book.GetYear();
-
-            //Month
-            publicationMonth = Book.GetMonth();
-
-            DateTime date = new DateTime(publicationYear, publicationMonth, 1);
-
-            Console.WriteLine("------------");
-
-            //Get summary
-            summary = Book.GetSummary();
-
-            //Create a book object
-            Book book = new Book()
-            {
-                Title = title,
-                Author = author,
-                Genre = genre,
-                Year = date.Year + "-" + date.Month,
-                Summary = summary
-            };
-            return book;
-        }
 
     }
 }
