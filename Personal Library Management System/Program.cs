@@ -21,7 +21,7 @@ namespace Personal_Library_Management_System
                 personalLibrary.Load(jsonFile);
                 do
                 {
-                    Console.WriteLine("\nMenu:\n1-Add a Book\n2-View All Books\n3-Update Book Details\n4-Delete a Book\n5-Search for a Book\n6-Rent a Book\n7-View All Rent Books\n8-Exit");
+                    Console.WriteLine("Menu:\n1-Add a Book\n2-View All Books\n3-Update Book Details\n4-Delete a Book\n5-Search for a Book\n6-IsRent a Book\n7-View All IsRent Books\n8-Exit");
                     Console.Write("\nEnter your choice: ");
                     choice = Console.ReadLine();
                     int updateBook = 1;
@@ -56,19 +56,24 @@ namespace Personal_Library_Management_System
                             Console.WriteLine("---------------------------------");
                             break;
 
-                        case "5": /////search for a book
+                        case "5":
+                            Console.WriteLine("\n<<<-------- Search for a Book -------->>>\n");
+                            Console.WriteLine("Enter title or author or both of the book you are looking for\nPress Enter if you want to skip one of them\n");
+                            personalLibrary.StartSearch(jsonFile);
+                            Console.WriteLine("---------------------------------");
+
                             break;
 
                         case "6":
-                            Console.WriteLine("\n<<<-------- Rent a Book -------->>>\n");
-                            Console.WriteLine("Enter the title of the book you wish to rent: ");
+                            Console.WriteLine("\n<<<-------- IsRent a Book -------->>>\n");
+                            Console.WriteLine("Enter the title of the book you wish to isRent: ");
                             string rentTitle = Book.GetBookTitle(updateBook);
                             personalLibrary.RentBook(rentTitle, jsonFile, txtFile);
                             Console.WriteLine("---------------------------------");
                             break;
 
                         case "7":
-                            Console.WriteLine("\n<<<-------- View All Rent Books -------->>>\n");
+                            Console.WriteLine("\n<<<-------- View All IsRent Books -------->>>\n");
                             personalLibrary.ViewAllRentBooks(jsonFile);
                             Console.WriteLine("---------------------------------");
                             break;
@@ -155,13 +160,8 @@ namespace Personal_Library_Management_System
                 Year = date.Year + "-" + date.Month,
                 Summary = summary
             };
-
             return book;
         }
-
-
-
-
 
     }
 }

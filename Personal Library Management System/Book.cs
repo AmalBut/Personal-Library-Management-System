@@ -22,18 +22,18 @@ namespace Personal_Library_Management_System
         public Genre Genre { get; set; }
         public string Year { get; set; }
 
-        private bool rent = false;
-        public bool Rent
+        private bool isRent = false;
+        public bool IsRent
         {
-            get { return rent; }
-            set { rent = value; }
+            get { return isRent; }
+            set { isRent = value; }
         }
         public string Summary { get; set; }
 
 
         public override string ToString()
         {
-            return "Title: " + Title + "\nAuthor: " + Author + "\nGenre: " + Genre + "\nPublication year: " + Year + "\nRent: " + Rent + "\nSummary: " + Summary + "\n";
+            return "Title: " + Title + "\nAuthor: " + Author + "\nGenre: " + Genre + "\nPublication year: " + Year + "\nRent: " + IsRent + "\nSummary: " + Summary + "\n";
         }
 
         private static bool IsValidTitle(string title, List<Book> bookList)
@@ -332,7 +332,7 @@ namespace Personal_Library_Management_System
             string stringRent = "";
             do
             {
-                Console.Write("Rent: (y/n) ");
+                Console.Write("IsRent: (y/n) ");
                 stringRent = Console.ReadLine();
                 if (stringRent.ToLower().Equals("y"))
                 {

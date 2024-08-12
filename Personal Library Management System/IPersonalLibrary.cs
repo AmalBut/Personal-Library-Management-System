@@ -14,8 +14,7 @@ namespace Personal_Library_Management_System
 
         void DeleteBook(string title, string jsonFile, string txtFile);
 
-        // Book SearchForBook(string title = "", string author = "");
-
+        List<Book> SearchForBook(string jsonFile, string title = "", string author = "");
 
         void SaveInFiles(string jsonFile, string txtFile);
         List<Book> Load(string jsonFile);

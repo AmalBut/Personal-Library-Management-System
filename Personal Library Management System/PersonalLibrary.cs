@@ -56,7 +56,7 @@ namespace Personal_Library_Management_System
             string modifiedBook = "";
             foreach (var book in bookList)
             {
-                if (book.Title == title)
+                if (book.Title.Equals(title))
                 {
                     oldBook = book.ToString();
                     Console.WriteLine("----------------------");
@@ -74,7 +74,7 @@ namespace Personal_Library_Management_System
                     DateTime date = new DateTime(newYear, newMonth, 1);
                     book.Year = date.Year + "-" + date.Month;
                     Console.WriteLine("------------");
-                    book.Rent = Book.GetRent();
+                    book.IsRent = Book.GetRent();
                     Console.WriteLine("------------");
                     book.Summary = Book.GetSummary();
                     Console.WriteLine("------------");
@@ -131,7 +131,7 @@ namespace Personal_Library_Management_System
 
             foreach (var book in bookList)
             {
-                if (book.Title == title)
+                if (book.Title.Equals(title))
                 {
 
                     bookList.Remove(book);
@@ -182,10 +182,10 @@ namespace Personal_Library_Management_System
 
             foreach (var book in bookList)
             {
-                if (book.Title == title && !book.Rent)
+                if (book.Title.Equals(title) && !book.IsRent)
                 {
 
-                    book.Rent = true;
+                    book.IsRent = true;
                     bookFound = true;
                     break;
                 }
@@ -202,12 +202,12 @@ namespace Personal_Library_Management_System
                     {
                         Books = bookList;
                         SaveInFiles(jsonFile, txtFile);
-                        Console.WriteLine($"Book {title} was rent successfully");
+                        Console.WriteLine($"Book {title} was isRent successfully");
 
                     }
                     else if (save.ToLower().Equals("n"))
                     {
-                        Console.WriteLine("Sorry! No rent was done");
+                        Console.WriteLine("Sorry! No isRent was done");
                         break;
                     }
                     else
@@ -233,7 +233,7 @@ namespace Personal_Library_Management_System
             bool rentFound = false;
             foreach (var book in Books)
             {
-                if (book.Rent)
+                if (book.IsRent)
                 {
                     Console.WriteLine(book.ToString());
                     Console.WriteLine("<<<<<<<<<<>>>>>>>>>>>");
@@ -243,11 +243,70 @@ namespace Personal_Library_Management_System
 
             if (!rentFound)
             {
-                Console.WriteLine("No rent books to view");
+                Console.WriteLine("No isRent books to view");
             }
-
         }
 
+        public List<Book> SearchForBook(string jsonFile, string title = "", string author = "")
+        {
+            List<Book> bookList = Load(jsonFile);
+            //   Book searchedBook = null;
+            List<Book> searchedBookList = new List<Book>();
+
+            foreach (var book in bookList)
+            {
+                if (book.Title.Equals(title) && author.Equals(""))
+                {
+                    searchedBookList.Add(book);
+                    break;
+                }
+                else if (title.Equals("") && book.Author.Equals(author))
+                {
+                    searchedBookList.Add(book);
+                }
+                else if (book.Title.Equals(title) && book.Author.Equals(author))
+                {
+                    searchedBookList.Add(book);
+                    break;
+                }
+            }
+            return searchedBookList;
+        }
+
+        public void StartSearch(string jsonFile)
+        {
+            string searchTitle = "", searchAuthor = "";
+            do
+            {
+                Console.Write("Title: ");
+                searchTitle = Console.ReadLine();
+                Console.WriteLine("------------");
+                Console.Write("Author: ");
+                searchAuthor = Console.ReadLine();
+                Console.WriteLine("------------");
+
+                if (searchTitle.Equals("") && searchAuthor.Equals(""))
+                {
+                    Console.WriteLine("Error: At least one field must be entered. Try Again\n");
+                }
+            } while (searchTitle.Equals("") && searchAuthor.Equals(""));
+
+
+            List<Book> searchedBooks = SearchForBook(jsonFile, searchTitle, searchAuthor);
+            if (searchedBooks.Count == 0)
+            {
+                Console.WriteLine("Book not found");
+            }
+            else
+            {
+                Console.WriteLine("The book/s found:\n");
+                foreach (var foundBook in searchedBooks)
+                {
+                    Console.WriteLine("Title: " + foundBook.Title + "\nAuthor: " + foundBook.Author + "\nGenre: " + foundBook.Genre + "\nPublication year: " + foundBook.Year + "\nSummary: " + foundBook.Summary);
+                    Console.WriteLine("<<<<<<<<<<>>>>>>>>>>>");
+                }
+            }
+        }
 
         public List<Book> Load(string jsonFile)
         {
@@ -268,8 +327,5 @@ namespace Personal_Library_Management_System
 
             File.WriteAllText(txtFile, updatedJsonBooks);
         }
-
-
-
     }
 }
