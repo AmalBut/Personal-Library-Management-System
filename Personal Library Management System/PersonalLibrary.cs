@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.Json;
 using System.IO;
-using System.Xml.Linq;
+
 
 
 namespace Personal_Library_Management_System
@@ -60,23 +60,52 @@ namespace Personal_Library_Management_System
                 {
                     oldBook = book.ToString();
                     Console.WriteLine("----------------------");
-                    Console.WriteLine("Enter new book information: ");
-                    int addBook = 0;
-                    book.Title = Book.GetBookTitle(addBook);
+                    Console.WriteLine("Enter new book information:\nPress enter if you want to skip any field");
+
+                    UpdateTitle(book, bookList);
+
                     Console.WriteLine("------------");
-                    book.Author = Book.GetBookAuthor();
+
+                    UpdateAuthor(book);
+
                     Console.WriteLine("------------");
-                    book.Genre = Book.GetGenre();
+
+                    Console.WriteLine("Enter genre:");
+                    int forUpdate = 1;
+                    Genre newGenre = Book.GetGenre(forUpdate);
+
+                    if (!newGenre.Equals(default))
+                    {
+                        book.Genre = newGenre;
+                    }
+
+
                     Console.WriteLine("------------");
+
                     int newYear = Book.GetYear();
+
                     Console.WriteLine("------------");
+
                     int newMonth = Book.GetMonth();
+
                     DateTime date = new DateTime(newYear, newMonth, 1);
                     book.Year = date.Year + "-" + date.Month;
+
                     Console.WriteLine("------------");
-                    book.IsRent = Book.GetRent();
+
+                    bool newRent = Book.GetRent(forUpdate);
+
+
                     Console.WriteLine("------------");
-                    book.Summary = Book.GetSummary();
+
+
+                    Console.WriteLine("Enter summary:");
+                    string summaryToUpdate = Console.ReadLine();
+                    if (!summaryToUpdate.Equals(""))
+                    {
+                        book.Summary = Book.GetSummary();
+                    }
+
                     Console.WriteLine("------------");
                     modifiedBook = book.ToString();
 
@@ -202,12 +231,12 @@ namespace Personal_Library_Management_System
                     {
                         Books = bookList;
                         SaveInFiles(jsonFile, txtFile);
-                        Console.WriteLine($"Book {title} was isRent successfully");
+                        Console.WriteLine($"Book {title} was Rent successfully");
 
                     }
                     else if (save.ToLower().Equals("n"))
                     {
-                        Console.WriteLine("Sorry! No isRent was done");
+                        Console.WriteLine("Sorry! No Rent was done");
                         break;
                     }
                     else
@@ -243,7 +272,7 @@ namespace Personal_Library_Management_System
 
             if (!rentFound)
             {
-                Console.WriteLine("No isRent books to view");
+                Console.WriteLine("No Rent books to view");
             }
         }
 
@@ -312,6 +341,84 @@ namespace Personal_Library_Management_System
                 }
             }
         }
+
+        private bool CanUpdateTitle(string titleToUpdate, List<Book> bookList)
+        {
+            bool canUpdate = true;
+            bool bookFound = false;
+
+            string TitleLower = titleToUpdate.ToLower();
+            foreach (var bookItem in bookList)
+            {
+                string currentTitleLower = bookItem.Title.ToLower();
+                if (currentTitleLower.Equals(TitleLower))
+                {
+                    bookFound = true;
+                    canUpdate = false;
+                    break;
+                }
+            }
+
+
+            if (bookFound)
+            {
+                bookFound = false;
+                Console.Write("Error: Book is already exist!! Try again . . . ");
+            }
+            return canUpdate;
+
+        }
+
+
+
+        private void UpdateTitle(Book book, List<Book> bookList)
+        {
+            bool isValidTitle = true;
+
+            do
+            {
+                Console.WriteLine("\nEnter title: ");
+                string titleToUpdate = Console.ReadLine();
+                if (!titleToUpdate.Equals(""))
+                {
+                    if (!book.Title.Equals(titleToUpdate))
+                    {
+                        isValidTitle = CanUpdateTitle(titleToUpdate, bookList);
+
+                    }
+                    if (isValidTitle)
+                    {
+                        book.Title = titleToUpdate;
+                    }
+                }
+
+            } while (!isValidTitle);
+
+        }
+
+        private void UpdateAuthor(Book book)
+        {
+            bool isValidTitle = true;
+            int forUpdate = 1;
+            do
+            {
+                Console.WriteLine("\nEnter author: ");
+                string authorToUpdate = Console.ReadLine();
+                if (!authorToUpdate.Equals(""))
+                {
+                    isValidTitle = Book.IsValidAuthor(authorToUpdate, forUpdate);
+
+                    if (isValidTitle)
+                    {
+                        book.Title = authorToUpdate;
+                    }
+                }
+
+            } while (!isValidTitle);
+
+        }
+
+
 
         public List<Book> Load(string jsonFile)
         {

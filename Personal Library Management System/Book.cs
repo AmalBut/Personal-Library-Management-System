@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
+
 
 
 namespace Personal_Library_Management_System
@@ -66,7 +66,7 @@ namespace Personal_Library_Management_System
         }
 
 
-        public static bool IsValidAuthor(string author)
+        public static bool IsValidAuthor(string author, int forUpdate = 0)
         {
             bool validAuthor = true;
 
@@ -76,7 +76,16 @@ namespace Personal_Library_Management_System
             if (author.Length == 1)
             {
                 validAuthor = false;
-                Console.Write("Error: There is no name of 1 character !! Press Esc to cancel or any other key to try again . . . ");
+
+                if (forUpdate == 1)
+                {
+                    Console.WriteLine("Error: There is no name of 1 character !!");
+                }
+                else
+                {
+                    Console.Write("Error: There is no name of 1 character !! Press Esc to cancel or any other key to try again . . . ");
+                }
+
             }
 
             char[] specialChar = {
@@ -88,7 +97,15 @@ namespace Personal_Library_Management_System
             if (author.IndexOfAny(specialChar) != -1)
             {
                 validAuthor = false;
-                Console.Write("Error: Name could not contain special characters!! Press Esc to cancel or any other key to try again . . . ");
+                if (forUpdate == 1)
+                {
+                    Console.WriteLine("Error: Name could not contain special characters!! ");
+                }
+                else
+                {
+                    Console.Write("Error: Name could not contain special characters!! Press Esc to cancel or any other key to try again . . . ");
+                }
+
             }
 
             return validAuthor;
@@ -169,9 +186,9 @@ namespace Personal_Library_Management_System
         public static string GetBookTitle(int addOrUpdate)
         {
             bool isValidTitle = true;
-
             string title = null;
             int add = 0, update = 1;
+
             do
             {
                 Console.Write("Title: ");
@@ -182,6 +199,7 @@ namespace Personal_Library_Management_System
                 }
                 else if (addOrUpdate == update)
                 {
+
                     isValidTitle = IsEmptyInput(title);
                 }
 
@@ -190,7 +208,7 @@ namespace Personal_Library_Management_System
 
                     if (Console.ReadKey().Key == ConsoleKey.Escape)
                     {
-                        return null;
+                        return "";
                     }
                     Console.WriteLine("\n");
                 }
@@ -224,7 +242,7 @@ namespace Personal_Library_Management_System
             return author;
         }
 
-        public static Genre GetGenre()
+        public static Genre GetGenre(int forUpdate = 0)
         {
             int numOfGenres = 0;
             string genreChoice;
@@ -240,6 +258,12 @@ namespace Personal_Library_Management_System
             //Get user choice
             Console.Write("\nChoose a genre by its number: ");
             genreChoice = Console.ReadLine();
+
+            if (genreChoice.Equals("") && forUpdate == 1)
+            {
+                return genre;
+            }
+
             int genreNumber;
             bool isNumber = int.TryParse(genreChoice, out genreNumber);
 
@@ -326,14 +350,17 @@ namespace Personal_Library_Management_System
             return summary;
         }
 
-        public static bool GetRent()
+        public static bool GetRent(int forUpdate = 0)
         {
             bool rent = false;
             string stringRent = "";
             do
             {
-                Console.Write("IsRent: (y/n) ");
+
+                Console.Write("Rent: (y/n) ");
+
                 stringRent = Console.ReadLine();
+
                 if (stringRent.ToLower().Equals("y"))
                 {
                     rent = true;

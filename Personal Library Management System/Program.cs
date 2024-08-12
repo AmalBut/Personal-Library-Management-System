@@ -21,7 +21,8 @@ namespace Personal_Library_Management_System
                 personalLibrary.Load(jsonFile);
                 do
                 {
-                    Console.WriteLine("Menu:\n1-Add a Book\n2-View All Books\n3-Update Book Details\n4-Delete a Book\n5-Search for a Book\n6-IsRent a Book\n7-View All IsRent Books\n8-Exit");
+                    //Console.WriteLine("a");
+                    Console.WriteLine("Menu:\n1-Add a Book\n2-View All Books\n3-Update Book Details\n4-Delete a Book\n5-Search for a Book\n6-Rent a Book\n7-View All Rent Books\n8-Exit");
                     Console.Write("\nEnter your choice: ");
                     choice = Console.ReadLine();
                     int updateBook = 1;
@@ -65,15 +66,15 @@ namespace Personal_Library_Management_System
                             break;
 
                         case "6":
-                            Console.WriteLine("\n<<<-------- IsRent a Book -------->>>\n");
-                            Console.WriteLine("Enter the title of the book you wish to isRent: ");
+                            Console.WriteLine("\n<<<-------- Rent a Book -------->>>\n");
+                            Console.WriteLine("Enter the title of the book you wish to Rent: ");
                             string rentTitle = Book.GetBookTitle(updateBook);
                             personalLibrary.RentBook(rentTitle, jsonFile, txtFile);
                             Console.WriteLine("---------------------------------");
                             break;
 
                         case "7":
-                            Console.WriteLine("\n<<<-------- View All IsRent Books -------->>>\n");
+                            Console.WriteLine("\n<<<-------- View All Rent Books -------->>>\n");
                             personalLibrary.ViewAllRentBooks(jsonFile);
                             Console.WriteLine("---------------------------------");
                             break;
@@ -114,7 +115,7 @@ namespace Personal_Library_Management_System
             //Get title
             int addBook = 0;
             title = Book.GetBookTitle(addBook);
-            if (title == null)
+            if (title == "")
             {
                 return null;
             }

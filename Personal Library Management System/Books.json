@@ -4,7 +4,7 @@
     "Author": "F. Scott Fitzgerald",
     "Genre": 1,
     "Year": "1925-04",
-    "Rent": false,
+    "IsRent": false,
     "Summary": "A novel about the American dream and the tragic story of Jay Gatsby, a mysterious millionaire."
   },
   {
@@ -12,23 +12,23 @@
     "Author": "Harper Lee",
     "Genre": 2,
     "Year": "1960-07",
-    "Rent": false,
+    "IsRent": false,
     "Summary": "A novel that deals with serious issues like racial injustice and moral growth in the Deep South."
   },
   {
-    "Title": "1151",
+    "Title": "2222",
     "Author": "ffff",
     "Genre": 4,
-    "Year": "1444-10",
-    "Rent": false,
+    "Year": "2002-10",
+    "IsRent": false,
     "Summary": ""
   },
   {
-	"Title": "5155",
-	"Author": "ffff",
-	"Genre": 4,
-	"Year": "1444-10",
-	"Rent": false,
-	"Summary": ""
+    "Title": "5155",
+    "Author": "ffff",
+    "Genre": 4,
+    "Year": "1444-10",
+    "IsRent": false,
+    "Summary": ""
   }
 ]
