@@ -202,7 +202,8 @@ namespace Personal_Library_Management_System
                 if (!isValidTitle)
                 {
 
-                    if (Console.ReadKey().Key == ConsoleKey.Escape)
+                    ConsoleKeyInfo inputKey = Console.ReadKey(true);
+                    if (inputKey.Key == ConsoleKey.Escape)
                     {
                         return "";
                     }
@@ -226,7 +227,8 @@ namespace Personal_Library_Management_System
 
                 if (!isValidAuthor)
                 {
-                    if (Console.ReadKey().Key == ConsoleKey.Escape)
+                    ConsoleKeyInfo inputKey = Console.ReadKey(true);
+                    if (inputKey.Key == ConsoleKey.Escape)
                     {
                         return null;
                     }
@@ -375,7 +377,7 @@ namespace Personal_Library_Management_System
             return rent;
         }
 
-       
+
     }
 
 }
